@@ -3,7 +3,7 @@ import 'package:tirelist/external/request_interface.dart';
 
 class HttpRequest implements RequestInterface {
   @override
-  Future get(String url) async {
+  Future<http.Response?> get(String url) async {
     http.Response response;
     try {
       Uri uri = Uri.parse(url);
