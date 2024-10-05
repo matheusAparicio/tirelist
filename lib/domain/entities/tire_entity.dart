@@ -25,27 +25,27 @@ class TireEntity {
     required this.disposal,
     required this.registrationImages,
   });
-  late final int id;
-  late final String serialNumber;
+  late final dynamic id;
+  late final String? serialNumber;
   late final int companyGroupId;
   late final String companyGroupName;
   late final int branchOfficeId;
   late final String branchOfficeName;
   late final int currentLifeCycle;
   late final int timesRetreaded;
-  late final double maxRetreadsExpected;
-  late final double recommendedPressure;
-  late final double currentPressure;
-  late final String dot;
-  late final double purchaseCost;
+  late final dynamic maxRetreadsExpected;
+  late final dynamic recommendedPressure;
+  late final dynamic currentPressure;
+  late final String? dot;
+  late final dynamic purchaseCost;
   late final bool newTire;
   late final String status;
   late final String createdAt;
   late final TireSize tireSize;
   late final Make make;
   late final Model model;
-  late final CurrentRetread currentRetread;
-  late final Disposal disposal;
+  late final CurrentRetread? currentRetread;
+  late final Disposal? disposal;
   late final List<dynamic> registrationImages;
   
   TireEntity.fromJson(Map<String, dynamic> json){
@@ -68,8 +68,8 @@ class TireEntity {
     tireSize = TireSize.fromJson(json['tireSize']);
     make = Make.fromJson(json['make']);
     model = Model.fromJson(json['model']);
-    currentRetread = CurrentRetread.fromJson(json['currentRetread']);
-    disposal = Disposal.fromJson(json['disposal']);
+    currentRetread = json['currentRetread'] != null ? CurrentRetread.fromJson(json['currentRetread']) : null;
+    disposal = json['disposal'] != null ? Disposal.fromJson(json['disposal']) : null;
     registrationImages = List.castFrom<dynamic, dynamic>(json['registrationImages']);
   }
 
@@ -94,8 +94,8 @@ class TireEntity {
     _data['tireSize'] = tireSize.toJson();
     _data['make'] = make.toJson();
     _data['model'] = model.toJson();
-    _data['currentRetread'] = currentRetread.toJson();
-    _data['disposal'] = disposal.toJson();
+    _data['currentRetread'] = currentRetread?.toJson();
+    _data['disposal'] = disposal?.toJson();
     _data['registrationImages'] = registrationImages;
     return _data;
   }
@@ -160,8 +160,8 @@ class Model {
   });
   late final int id;
   late final String name;
-  late final int groovesQuantity;
-  late final int treadDepth;
+  late final dynamic groovesQuantity;
+  late final dynamic treadDepth;
   
   Model.fromJson(Map<String, dynamic> json){
     id = json['id'];
@@ -188,7 +188,7 @@ class CurrentRetread {
   });
   late final Make make;
   late final Model model;
-  late final double retreadCost;
+  late final dynamic retreadCost;
   
   CurrentRetread.fromJson(Map<String, dynamic> json){
     make = Make.fromJson(json['make']);

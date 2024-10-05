@@ -4,7 +4,7 @@ import 'package:tirelist/external/request_interface.dart';
 class HttpRequest implements RequestInterface {
   @override
   Future<http.Response?> get(String url) async {
-    http.Response response;
+    http.Response? response;
     try {
       Uri uri = Uri.parse(url);
       response = await http.get(
@@ -14,7 +14,7 @@ class HttpRequest implements RequestInterface {
         },
       ).timeout(const Duration(milliseconds: 10000));
     } catch (error) {
-      return null;
+      response = null;
     }
     return response;
   }

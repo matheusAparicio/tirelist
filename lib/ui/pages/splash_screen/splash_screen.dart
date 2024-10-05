@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tirelist/ui/pages/splash_screen/splash_screen_view_model.dart';
-import 'package:tirelist/ui/utilities/app_colors.dart';
-import 'package:tirelist/ui/utilities/app_text_styles.dart';
+import 'package:tirelist/ui/theme/app_colors.dart';
+import 'package:tirelist/ui/theme/app_text_styles.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

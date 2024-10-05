@@ -6,8 +6,7 @@ class SplashScreenViewModel {
     await Future.delayed(
       const Duration(seconds: 3),
       () => {
-        if (context.mounted)
-          {
+        if (context.mounted) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(

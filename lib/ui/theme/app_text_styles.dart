@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tirelist/ui/utilities/app_colors.dart';
+import 'package:tirelist/ui/theme/app_colors.dart';
 
 class AppTextStyles {
   static const TextStyle splashScreen = TextStyle(

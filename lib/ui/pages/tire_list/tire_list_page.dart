@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tirelist/ui/pages/tire_list/components/tire_list_body.dart';
 
 class TireListPage extends StatefulWidget {
   const TireListPage({super.key});
@@ -10,6 +11,8 @@ class TireListPage extends StatefulWidget {
 class _TireListPageState extends State<TireListPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: TireListBody(),
+    );
   }
 }
