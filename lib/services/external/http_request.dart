@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import 'package:tirelist/external/request_interface.dart';
+import 'package:tirelist/services/external/request_interface.dart';
 
 class HttpRequest implements RequestInterface {
   @override

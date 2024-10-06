@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:tirelist/domain/entities/tire_entity.dart';
-import 'package:tirelist/external/http_request.dart';
+import 'package:tirelist/services/external/http_request.dart';
 import 'package:tirelist/utilities/constants.dart';
 
 class TireService {

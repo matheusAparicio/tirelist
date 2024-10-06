@@ -8,6 +8,7 @@ class AppColors {
   static const Color appBarBackground = normalMarine;
   static const Color appBarText = white;
 
+  static const Color pageBackground = white;
   static const Color pageLoading = normalMarine;
 
   static const Color white = Color.fromRGBO(255, 255, 255, 1);

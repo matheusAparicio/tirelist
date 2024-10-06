@@ -1,6 +1,6 @@
 import 'package:tirelist/domain/entities/tire_entity.dart';
-import 'package:tirelist/external/http_request.dart';
-import 'package:tirelist/external/tire_service.dart';
+import 'package:tirelist/services/external/http_request.dart';
+import 'package:tirelist/services/external/tire_service.dart';
 
 class TireDetailPageModel {
   final HttpRequest _httpRequest = HttpRequest();

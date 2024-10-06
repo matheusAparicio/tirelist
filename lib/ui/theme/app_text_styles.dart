@@ -16,25 +16,30 @@ class AppTextStyles {
     color: AppColors.appBarText,
   );
 
-  static TextStyle pageError = GoogleFonts.prompt(
-    fontSize: 20,
-    color: AppColors.black,
-  );
-
   static TextStyle componentTitle = GoogleFonts.prompt(
-    fontSize: 20,
-    fontWeight: FontWeight.bold,
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
     color: AppColors.black,
   );
 
   static TextStyle componentSubtitle = GoogleFonts.prompt(
-    fontSize: 18,
-    fontWeight: FontWeight.bold,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
     color: AppColors.black,
   );
 
-  static TextStyle componentInfo = GoogleFonts.prompt(
+  static TextStyle componentInfo = GoogleFonts.montserrat(
     fontSize: 16,
+    color: AppColors.black,
+  );
+
+  static TextStyle tag = GoogleFonts.montserrat(
+    fontSize: 12,
+    color: AppColors.black,
+  );
+
+  static TextStyle pageError = GoogleFonts.montserrat(
+    fontSize: 14,
     color: AppColors.black,
   );
 }

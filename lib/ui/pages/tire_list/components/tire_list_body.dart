@@ -19,35 +19,41 @@ class TireListBody extends StatefulWidget {
 class _TireListBodyState extends State<TireListBody> {
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: widget.viewModel.state,
-      builder: (context, state, child) {
-        switch (state.runtimeType) {
-          case const (TireListPageLoadingState):
-            return const Center(
-              child: CircularProgressIndicator(
-                color: AppColors.pageLoading,
-              ),
-            );
-          case const (TireListPageSuccessfulState):
-            final typedState = state as TireListPageSuccessfulState;
-            return ListView.builder(
-              itemCount: typedState.tires.length,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return TireComponent(
-                  tire: typedState.tires[index],
-                );
-              },
-            );
-          default:
-            final typedState = state as TireListPageErrorState;
-            return Text(
-              typedState.errorMessage,
-              style: AppTextStyles.pageError,
-            );
-        }
-      },
+    return Container(
+      decoration: const BoxDecoration(
+        color: AppColors.pageBackground,
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: ValueListenableBuilder(
+        valueListenable: widget.viewModel.state,
+        builder: (context, state, child) {
+          switch (state.runtimeType) {
+            case const (TireListPageLoadingState):
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.pageLoading,
+                ),
+              );
+            case const (TireListPageSuccessfulState):
+              final typedState = state as TireListPageSuccessfulState;
+              return ListView.builder(
+                itemCount: typedState.tires.length,
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return TireComponent(
+                    tire: typedState.tires[index],
+                  );
+                },
+              );
+            default:
+              final typedState = state as TireListPageErrorState;
+              return Text(
+                typedState.errorMessage,
+                style: AppTextStyles.pageError,
+              );
+          }
+        },
+      ),
     );
   }
 }
