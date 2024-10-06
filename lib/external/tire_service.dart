@@ -27,7 +27,7 @@ class TireService {
     return [];
   }
 
-  Future<TireEntity?> getTireInfo({
+  Future<TireEntity?> getTireDetail({
     required int tireId,
   }) async {
     var response = await httpRequest.get(

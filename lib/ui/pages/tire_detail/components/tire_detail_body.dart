@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tirelist/view_model/tire_detail_page_view_model.dart';
 
 class TireDetailBody extends StatefulWidget {
-  const TireDetailBody({super.key});
+  final TireDetailPageViewModel viewModel;
+  const TireDetailBody({
+    required this.viewModel,
+    super.key,
+  });
 
   @override
   State<TireDetailBody> createState() => _TireDetailBodyState();
