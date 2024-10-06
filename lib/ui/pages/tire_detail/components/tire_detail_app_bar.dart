@@ -3,14 +3,14 @@ import 'package:tirelist/ui/theme/app_colors.dart';
 import 'package:tirelist/ui/theme/app_text_styles.dart';
 import 'package:tirelist/ui/theme/measures.dart';
 
-class TireInfoAppBar extends StatefulWidget {
-  const TireInfoAppBar({super.key});
+class TireDetailAppBar extends StatefulWidget {
+  const TireDetailAppBar({super.key});
 
   @override
-  State<TireInfoAppBar> createState() => _TireInfoAppBarState();
+  State<TireDetailAppBar> createState() => _TireDetailAppBarState();
 }
 
-class _TireInfoAppBarState extends State<TireInfoAppBar> {
+class _TireDetailAppBarState extends State<TireDetailAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -21,6 +21,9 @@ class _TireInfoAppBarState extends State<TireInfoAppBar> {
       ),
       backgroundColor: AppColors.normalMarine,
       centerTitle: true,
+      iconTheme: const IconThemeData(
+        color: AppColors.appBarText
+      ),
     );
   }
 }

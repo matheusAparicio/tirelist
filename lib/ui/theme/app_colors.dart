@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 
 class AppColors {
 
+  static const Color splashScreenBackgroundBegin = softMarine;
+  static const Color splashScreenBackgroundEnd = darkMarine;
+  static const Color appBarBackground = normalMarine;
+  static const Color appBarText = white;
+
   static const Color white = Color.fromRGBO(255, 255, 255, 1);
   static const Color black = Color.fromRGBO(0, 0, 0, 1);
 

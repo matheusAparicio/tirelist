@@ -13,6 +13,6 @@ class AppTextStyles {
   static TextStyle appBarTitle = GoogleFonts.prompt(
     fontSize: 25,
     fontWeight: FontWeight.bold,
-    color: AppColors.white,
+    color: AppColors.appBarText,
   );
 }

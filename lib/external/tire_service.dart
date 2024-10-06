@@ -3,9 +3,9 @@ import 'package:tirelist/domain/entities/tire_entity.dart';
 import 'package:tirelist/external/http_request.dart';
 import 'package:tirelist/utilities/constants.dart';
 
-class TireApi {
+class TireService {
   final HttpRequest httpRequest;
-  TireApi(this.httpRequest);
+  TireService(this.httpRequest);
 
   Future<List<TireEntity>> getTireList({
     required int pageNumber,

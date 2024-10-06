@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:tirelist/ui/pages/splash_screen/splash_screen_view_model.dart';
+import 'package:tirelist/view_model/splash_screen_view_model.dart';
 import 'package:tirelist/ui/pages/tire_list/tire_list_page.dart';
 import 'package:tirelist/ui/theme/app_colors.dart';
 import 'package:tirelist/ui/theme/app_text_styles.dart';
@@ -49,8 +49,8 @@ class _SplashScreenState extends State<SplashScreen> {
             begin: Alignment.topLeft,
             end: Alignment(0.8, 1),
             colors: <Color>[
-              AppColors.softMarine,
-              AppColors.darkMarine,
+              AppColors.splashScreenBackgroundBegin,
+              AppColors.splashScreenBackgroundEnd,
             ],
           ),
         ),
