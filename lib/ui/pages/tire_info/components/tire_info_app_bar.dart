@@ -15,7 +15,7 @@ class _TireInfoAppBarState extends State<TireInfoAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       toolbarHeight: Measures.APP_BAR_HEIGHT,
-      title: const Text(
+      title: Text(
         "Detalhes do Pneu",
         style: AppTextStyles.appBarTitle,
       ),

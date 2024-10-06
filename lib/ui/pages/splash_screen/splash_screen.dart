@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 150,
               fit: BoxFit.fitWidth,
             ),
-            const Text(
+            Text(
               "TireList",
               style: AppTextStyles.splashScreen,
             ),
