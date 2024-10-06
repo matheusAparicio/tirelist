@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+
+  static const Color white = Color.fromRGBO(255, 255, 255, 1);
+  static const Color black = Color.fromRGBO(0, 0, 0, 1);
+
   static const Color lightBluee = Color.fromRGBO(161, 181, 255, 1);
   static const Color softBluee = Color.fromRGBO(122, 151, 255, 1);
   static const Color normalBluee = Color.fromRGBO(85, 121, 255, 1);

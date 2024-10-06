@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tirelist/ui/pages/splash_screen/splash_screen_view_model.dart';
+import 'package:tirelist/ui/pages/tire_list/tire_list_page.dart';
 import 'package:tirelist/ui/theme/app_colors.dart';
 import 'package:tirelist/ui/theme/app_text_styles.dart';
 
@@ -18,7 +19,23 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _vm = SplashScreenViewModel();
-    _vm.onInit(context);
+    _vm.onInit();
+    _vm.navigateToTireList.addListener(() {
+      if (_vm.navigateToTireList.value) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const TireListPage(),
+          ),
+        );
+      }
+    });
+  }
+  
+  @override
+  void dispose() {
+    _vm.navigateToTireList.dispose();
+    super.dispose();
   }
 
   @override
@@ -27,7 +44,15 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Container(
         alignment: Alignment.center,
         decoration: const BoxDecoration(
-          color: AppColors.darkMarine,
+          //color: AppColors.darkMarine,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment(0.8, 1),
+            colors: <Color>[
+              AppColors.softMarine,
+              AppColors.darkMarine,
+            ],
+          ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

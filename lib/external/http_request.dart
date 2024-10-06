@@ -10,9 +10,12 @@ class HttpRequest implements RequestInterface {
       response = await http.get(
         uri,
         headers: {
-          "x-prolog-api-token": "ePTC2XrkY34WKUCXq48fTxrLCzdV3M35MNpCfBYavabwwY9BJXg",
+          "x-prolog-api-token":
+              "ePTC2XrkY34WKUCXq48fTxrLCzdV3M35MNpCfBYavabwwY9BJXg",
         },
-      ).timeout(const Duration(milliseconds: 10000));
+      ).timeout(
+        const Duration(milliseconds: 10000),
+      );
     } catch (error) {
       response = null;
     }
