@@ -33,8 +33,11 @@ class _TireListBodyState extends State<TireListBody> {
             final typedState = state as TireListPageSuccessfulState;
             return ListView.builder(
               itemCount: typedState.tires.length,
+              physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
-                return const TireComponent();
+                return TireComponent(
+                  tire: typedState.tires[index],
+                );
               },
             );
           default:

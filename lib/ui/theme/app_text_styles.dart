@@ -11,13 +11,13 @@ class AppTextStyles {
   );
 
   static TextStyle appBarTitle = GoogleFonts.prompt(
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: FontWeight.bold,
     color: AppColors.appBarText,
   );
 
   static TextStyle pageError = GoogleFonts.prompt(
-    fontSize: 25,
+    fontSize: 20,
     color: AppColors.black,
   );
 

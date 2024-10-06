@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tirelist/domain/entities/tire_entity.dart';
 import 'package:tirelist/ui/pages/tire_detail/tire_detail_page.dart';
 import 'package:tirelist/ui/theme/app_colors.dart';
 
 class TireComponent extends StatelessWidget {
+  final TireEntity tire;
   const TireComponent({
+    required this.tire,
     super.key,
   });
 
@@ -14,7 +17,9 @@ class TireComponent extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const TireDetailPage(),
+            builder: (context) => TireDetailPage(
+              tire: tire,
+            ),
           ),
         );
       },
