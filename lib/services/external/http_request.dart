@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'package:tirelist/services/external/request_interface.dart';
+import 'package:tirelist/utilities/constants.dart';
 
 class HttpRequest implements RequestInterface {
   @override
@@ -10,8 +11,7 @@ class HttpRequest implements RequestInterface {
       response = await http.get(
         uri,
         headers: {
-          "x-prolog-api-token":
-              "ePTC2XrkY34WKUCXq48fTxrLCzdV3M35MNpCfBYavabwwY9BJXg",
+          "x-prolog-api-token": Constants.API_KEY,
         },
       ).timeout(
         const Duration(milliseconds: 10000),
