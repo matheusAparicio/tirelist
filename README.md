@@ -48,6 +48,8 @@ Criei uma classe personalizada para fazer as requisições Http para reaproveita
 
 Toda a lógica por trás das telas ficou por conta das view models. A única lógica que deixei por conta do UI foram as aberturas dos dialogs.
 
+Alguns feedbacks visuais para o usuário também faltaram, como uma possível mensagem de lista vazia na TireListPage e formatação do valor de compra dos pneus de double para string em formato monetário adequado.
+
 ## Instruções para execução do projeto
 É necessário possuir o Flutter e Android SDK instalados no seu dispositivo.
 
