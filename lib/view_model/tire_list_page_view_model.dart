@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tirelist/domain/entities/tire_entity.dart';
 import 'package:tirelist/domain/model/tire_list_page_model.dart';
 import 'package:tirelist/domain/state/tire_list_page_state.dart';
 import 'package:tirelist/utilities/constants.dart';
@@ -8,6 +9,8 @@ class TireListPageViewModel {
       ValueNotifier<TireListPageState>(TireListPageLoadingState([]));
   final TireListPageModel model = TireListPageModel();
   final ScrollController scrollController = ScrollController();
+  final ValueNotifier<TireEntity?> tireToNavigate = ValueNotifier(null);
+  final ValueNotifier<bool> showUpFloatingActionButton = ValueNotifier(false);
 
   void onInit() async {
     _fetchTireList();
@@ -17,6 +20,16 @@ class TireListPageViewModel {
     if (model.canLoadTires) {
       _fetchTireList();
     }
+  }
+
+  void onUpFloatingActionButtonPressed() {
+    scrollController.animateTo(
+      0,
+      duration: const Duration(
+        milliseconds: 1000,
+      ),
+      curve: Curves.easeInOut,
+    );
   }
 
   Future<void> _fetchTireList() async {

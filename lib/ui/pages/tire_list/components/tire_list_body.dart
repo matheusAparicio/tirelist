@@ -39,6 +39,7 @@ class _TireListBodyState extends State<TireListBody> {
         } else {
           return TireComponent(
             tire: tires[index],
+            viewModel: widget.viewModel,
           );
         }
       },
