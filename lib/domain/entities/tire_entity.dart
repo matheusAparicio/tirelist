@@ -46,9 +46,9 @@ class TireEntity {
   late final Model model;
   late final CurrentRetread? currentRetread;
   late final Disposal? disposal;
-  late final List<dynamic> registrationImages;
-  
-  TireEntity.fromJson(Map<String, dynamic> json){
+  late final List<RegistrationImage> registrationImages;
+
+  TireEntity.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     serialNumber = json['serialNumber'];
     companyGroupId = json['companyGroupId'];
@@ -68,9 +68,14 @@ class TireEntity {
     tireSize = TireSize.fromJson(json['tireSize']);
     make = Make.fromJson(json['make']);
     model = Model.fromJson(json['model']);
-    currentRetread = json['currentRetread'] != null ? CurrentRetread.fromJson(json['currentRetread']) : null;
-    disposal = json['disposal'] != null ? Disposal.fromJson(json['disposal']) : null;
-    registrationImages = List.castFrom<dynamic, dynamic>(json['registrationImages']);
+    currentRetread = json['currentRetread'] != null
+        ? CurrentRetread.fromJson(json['currentRetread'])
+        : null;
+    disposal =
+        json['disposal'] != null ? Disposal.fromJson(json['disposal']) : null;
+    registrationImages = List.from(json['registrationImages'])
+        .map((e) => RegistrationImage.fromJson(e))
+        .toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -112,8 +117,8 @@ class TireSize {
   late final double height;
   late final double width;
   late final double rim;
-  
-  TireSize.fromJson(Map<String, dynamic> json){
+
+  TireSize.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     height = json['height'];
     width = json['width'];
@@ -137,8 +142,8 @@ class Make {
   });
   late final int id;
   late final String name;
-  
-  Make.fromJson(Map<String, dynamic> json){
+
+  Make.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
   }
@@ -162,8 +167,8 @@ class Model {
   late final String name;
   late final dynamic groovesQuantity;
   late final dynamic treadDepth;
-  
-  Model.fromJson(Map<String, dynamic> json){
+
+  Model.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     groovesQuantity = json['groovesQuantity'];
@@ -189,8 +194,8 @@ class CurrentRetread {
   late final Make make;
   late final Model model;
   late final dynamic retreadCost;
-  
-  CurrentRetread.fromJson(Map<String, dynamic> json){
+
+  CurrentRetread.fromJson(Map<String, dynamic> json) {
     make = Make.fromJson(json['make']);
     model = Model.fromJson(json['model']);
     retreadCost = json['retreadCost'];
@@ -214,11 +219,12 @@ class Disposal {
   late final int disposalReasonId;
   late final String disposalReasonDescription;
   late final List<dynamic> disposalImagesUrl;
-  
-  Disposal.fromJson(Map<String, dynamic> json){
+
+  Disposal.fromJson(Map<String, dynamic> json) {
     disposalReasonId = json['disposalReasonId'];
     disposalReasonDescription = json['disposalReasonDescription'];
-    disposalImagesUrl = List.castFrom<dynamic, dynamic>(json['disposalImagesUrl']);
+    disposalImagesUrl =
+        List.castFrom<dynamic, dynamic>(json['disposalImagesUrl']);
   }
 
   Map<String, dynamic> toJson() {
@@ -226,6 +232,27 @@ class Disposal {
     _data['disposalReasonId'] = disposalReasonId;
     _data['disposalReasonDescription'] = disposalReasonDescription;
     _data['disposalImagesUrl'] = disposalImagesUrl;
+    return _data;
+  }
+}
+
+class RegistrationImage {
+  RegistrationImage({
+    required this.id,
+    required this.url,
+  });
+  late final int id;
+  late final String url;
+
+  RegistrationImage.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    url = json['url'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final _data = <String, dynamic>{};
+    _data['id'] = id;
+    _data['url'] = url;
     return _data;
   }
 }

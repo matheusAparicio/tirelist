@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tirelist/domain/entities/tire_entity.dart';
 import 'package:tirelist/domain/state/tire_list_page_state.dart';
 import 'package:tirelist/ui/pages/tire_list/components/tire_component.dart';
 import 'package:tirelist/ui/theme/app_colors.dart';
@@ -17,6 +18,33 @@ class TireListBody extends StatefulWidget {
 }
 
 class _TireListBodyState extends State<TireListBody> {
+  ListView _tireListView({
+    required List<TireEntity> tires,
+    bool loading = false,
+  }) {
+    return ListView.builder(
+      itemCount: loading ? tires.length + 1 : tires.length,
+      physics: const BouncingScrollPhysics(),
+      controller: widget.viewModel.scrollController,
+      itemBuilder: (context, index) {
+        if (loading && index == tires.length) {
+          return Center(
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 5),
+              child: const CircularProgressIndicator(
+                color: AppColors.pageLoading,
+              ),
+            ),
+          );
+        } else {
+          return TireComponent(
+            tire: tires[index],
+          );
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,22 +57,20 @@ class _TireListBodyState extends State<TireListBody> {
         builder: (context, state, child) {
           switch (state.runtimeType) {
             case const (TireListPageLoadingState):
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.pageLoading,
-                ),
-              );
+              final typedState = state as TireListPageLoadingState;
+              return state.tires.isEmpty
+                  ? const Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.pageLoading,
+                      ),
+                    )
+                  : _tireListView(
+                      tires: typedState.tires,
+                      loading: true,
+                    );
             case const (TireListPageSuccessfulState):
               final typedState = state as TireListPageSuccessfulState;
-              return ListView.builder(
-                itemCount: typedState.tires.length,
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return TireComponent(
-                    tire: typedState.tires[index],
-                  );
-                },
-              );
+              return _tireListView(tires: typedState.tires);
             default:
               final typedState = state as TireListPageErrorState;
               return Text(

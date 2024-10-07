@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tirelist/domain/entities/tire_entity.dart';
 import 'package:tirelist/services/internal/i18n_service.dart';
+import 'package:tirelist/ui/custom_widgets/visualizable_image.dart';
 import 'package:tirelist/ui/pages/tire_detail/tire_detail_page.dart';
 import 'package:tirelist/ui/theme/app_colors.dart';
 import 'package:tirelist/ui/theme/app_text_styles.dart';
@@ -16,7 +17,7 @@ class TireComponent extends StatelessWidget {
 
   Widget _tag() {
     return Container(
-      width: 90,
+      width: 70,
       height: 25,
       decoration: BoxDecoration(
         color: tire.newTire ? AppColors.normalBluee : AppColors.normalGreyzy,
@@ -24,7 +25,7 @@ class TireComponent extends StatelessWidget {
       ),
       alignment: Alignment.center,
       child: Text(
-        tire.newTire ? i18n.getLabel("new_tire") : i18n.getLabel("used_tire"),
+        tire.newTire ? i18n.getLabel("new") : i18n.getLabel("used"),
         style: AppTextStyles.tag,
       ),
     );
@@ -58,6 +59,12 @@ class TireComponent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            if (tire.registrationImages.isNotEmpty)
+              VisualizableImage(
+                width: 80,
+                height: 80,
+                imageUrl: tire.registrationImages[0].url,
+              ),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -72,13 +79,13 @@ class TireComponent extends StatelessWidget {
                         style: AppTextStyles.componentTitle,
                       ),
                       Text(
-                        "${i18n.getLabel("model")} ${tire.model.name}",
+                        tire.serialNumber ?? i18n.getLabel("undefined_serial"),
                         style: AppTextStyles.componentSubtitle,
                       ),
                     ],
                   ),
                   Text(
-                    tire.serialNumber ?? i18n.getLabel("undefined_serial"),
+                    "${i18n.getLabel("model")} ${tire.model.name}",
                     style: AppTextStyles.componentSubtitle,
                   ),
                   Row(
@@ -86,7 +93,7 @@ class TireComponent extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        tire.purchaseCost.toString(),
+                        "R\$ ${tire.purchaseCost}",
                         style: AppTextStyles.componentSubtitle,
                       ),
                       _tag(),

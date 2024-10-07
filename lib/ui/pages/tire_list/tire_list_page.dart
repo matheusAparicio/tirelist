@@ -12,13 +12,25 @@ class TireListPage extends StatefulWidget {
 }
 
 class _TireListPageState extends State<TireListPage> {
-
   final TireListPageViewModel _vm = TireListPageViewModel();
 
   @override
   void initState() {
     super.initState();
     _vm.onInit();
+    _vm.scrollController.addListener(() {
+      if (_vm.scrollController.position.outOfRange &&
+          _vm.scrollController.offset >
+              _vm.scrollController.initialScrollOffset + 200) {
+        _vm.onListViewEndReached();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _vm.scrollController.dispose();
   }
 
   @override
@@ -30,7 +42,12 @@ class _TireListPageState extends State<TireListPage> {
         ),
         child: TireListAppBar(),
       ),
-      body: TireListBody(viewModel: _vm),
+      body: ValueListenableBuilder(
+        valueListenable: _vm.state,
+        builder: (context, state, _) {
+          return TireListBody(viewModel: _vm);
+        },
+      ),
     );
   }
 }
