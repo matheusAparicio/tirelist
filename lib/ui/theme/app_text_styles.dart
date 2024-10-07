@@ -16,26 +16,43 @@ class AppTextStyles {
     color: AppColors.appBarText,
   );
 
-  static TextStyle componentTitle = GoogleFonts.prompt(
+  static TextStyle mainColorTitle = GoogleFonts.prompt(
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: AppColors.black,
   );
 
-  static TextStyle componentSubtitle = GoogleFonts.prompt(
+  static TextStyle mainColorSubtitle = GoogleFonts.prompt(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.black,
   );
 
-  static TextStyle componentInfo = GoogleFonts.montserrat(
-    fontSize: 16,
+  static TextStyle mainColorInfo = GoogleFonts.montserrat(
+    fontSize: 14,
     color: AppColors.black,
   );
 
   static TextStyle tag = GoogleFonts.montserrat(
     fontSize: 12,
     color: AppColors.black,
+  );
+
+  static TextStyle secondaryColorTitle = GoogleFonts.prompt(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white,
+  );
+
+  static TextStyle secondaryColorSubtitle = GoogleFonts.prompt(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.white,
+  );
+
+  static TextStyle secondaryColorInfo = GoogleFonts.montserrat(
+    fontSize: 14,
+    color: AppColors.white,
   );
 
   static TextStyle pageError = GoogleFonts.montserrat(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tirelist/ui/custom_widgets/image_visualizer_dialog.dart';
 
 class VisualizableImage extends StatelessWidget {
   final String imageUrl;
@@ -18,17 +19,7 @@ class VisualizableImage extends StatelessWidget {
         showDialog(
           context: context,
           builder: (context) {
-            return Center(
-              child: InteractiveViewer(
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * .8,
-                  child: Image.network(
-                    imageUrl,
-                    fit: BoxFit.fitWidth,
-                  ),
-                ),
-              ),
-            );
+            return ImageVisualizerDialog(imageUrl: imageUrl);
           },
         );
       },

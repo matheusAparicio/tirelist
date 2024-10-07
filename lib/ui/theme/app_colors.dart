@@ -11,8 +11,8 @@ class AppColors {
   static const Color pageBackground = white;
   static const Color pageLoading = normalMarine;
 
-  static const Color white = Color.fromRGBO(255, 255, 255, 1);
-  static const Color black = Color.fromRGBO(0, 0, 0, 1);
+  static const Color white = Color.fromRGBO(248, 248, 248, 1);
+  static const Color black = Color.fromRGBO(7, 7, 7, 1);
 
   static const Color lightBluee = Color.fromRGBO(161, 181, 255, 1);
   static const Color softBluee = Color.fromRGBO(122, 151, 255, 1);

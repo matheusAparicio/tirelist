@@ -58,6 +58,7 @@ class _TireListPageState extends State<TireListPage> {
                 ),
               ),
             );
+            _vm.tireToNavigate.value = null;
           });
         }
         return Scaffold(

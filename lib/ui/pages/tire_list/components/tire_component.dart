@@ -71,17 +71,17 @@ class TireComponent extends StatelessWidget {
                     children: [
                       Text(
                         tire.make.name.trim(),
-                        style: AppTextStyles.componentTitle,
+                        style: AppTextStyles.mainColorTitle,
                       ),
                       Text(
                         tire.serialNumber ?? i18n.getLabel("undefined_serial"),
-                        style: AppTextStyles.componentSubtitle,
+                        style: AppTextStyles.mainColorSubtitle,
                       ),
                     ],
                   ),
                   Text(
                     "${i18n.getLabel("model")} ${tire.model.name}",
-                    style: AppTextStyles.componentSubtitle,
+                    style: AppTextStyles.mainColorSubtitle,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,7 +89,7 @@ class TireComponent extends StatelessWidget {
                     children: [
                       Text(
                         "R\$ ${tire.purchaseCost}",
-                        style: AppTextStyles.componentSubtitle,
+                        style: AppTextStyles.mainColorSubtitle,
                       ),
                       _tag(),
                     ],
@@ -98,7 +98,7 @@ class TireComponent extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 35),
+              margin: const EdgeInsets.only(left: 25),
               child: const Icon(
                 Icons.arrow_forward_ios,
                 color: AppColors.black,
