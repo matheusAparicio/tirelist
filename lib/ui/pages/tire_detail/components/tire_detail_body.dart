@@ -227,26 +227,25 @@ class _TireDetailBodyState extends State<TireDetailBody> {
               ],
             ],
           ),
+          if (tire.currentRetread != null)
           _section(
             title: i18n.getLabel("current_retread"),
             children: [
               _information(
                 title: i18n.getLabel("make"),
-                value: (tire.currentRetread?.make.name) ?? "",
+                value: tire.currentRetread!.make.name,
               ),
               _information(
                 title: i18n.getLabel("model"),
-                value: (tire.currentRetread?.model.name) ?? "",
+                value: tire.currentRetread!.model.name,
               ),
               _information(
                 title: i18n.getLabel("grooves_quantity"),
-                value:
-                    (tire.currentRetread?.model.groovesQuantity.toString()) ??
-                        "",
+                value: tire.currentRetread!.model.groovesQuantity.toString(),
               ),
               _information(
                 title: i18n.getLabel("tread_depth"),
-                value: (tire.currentRetread?.model.treadDepth.toString()) ?? "",
+                value: tire.currentRetread!.model.treadDepth.toString(),
               ),
             ],
           ),
