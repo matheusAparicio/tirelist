@@ -1,5 +1,4 @@
 # TireList
-Teste prático para vaga de desenvolvedor Flutter.
 O prazo proposto para o desenvolvimento deste aplicativo foi de 3 dias corridos e suas funcionalidades são as de mostrar uma lista de pneus obtidas via API e mostrar detalhes específicos do pneu selecionado.
 
 Desenvolvido com Flutter 3.24.3
